@@ -10,10 +10,9 @@ app = FastAPI()
 
 # Setting CORS middleware
 origins = [
-    "http://localhost:3000",
-    "localhost:3000",
-    "http://192.168.0.113:3000",
-    "192.168.0.113:3000",
+    "https://www.kengram.com",
+    "https://kengram.com",
+    "https://kengram.netlify.app"
 ]
 
 
