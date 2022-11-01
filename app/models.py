@@ -1,3 +1,4 @@
+from enum import unique
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.sqltypes import TIMESTAMP
@@ -11,6 +12,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, nullable=False)
     superuser = Column(Boolean, default=False)
+    active = Column(Boolean, default=True)
     name = Column(String, nullable=False)
     username = Column(String, nullable=False, unique=True)
     email = Column(String, nullable=False, unique=True)
@@ -22,6 +24,7 @@ class User(Base):
     strength = Column(Integer, default=0)
     invite_code = Column(String, nullable=False)
     reset_code = Column(String)
+    expiry_date = Column(TIMESTAMP(timezone=True))
 
     creation_date = Column(TIMESTAMP(timezone=True),
                            server_default=text("now()"))

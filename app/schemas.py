@@ -15,6 +15,8 @@ class UserCreate(BaseModel):
 
 class UserGet(BaseModel):
     id: int
+    superuser: bool
+    active: Optional[bool]
     name: str
     kengram: Optional[str]
     level: Optional[int]
@@ -24,6 +26,7 @@ class UserGet(BaseModel):
     username: str
     email: EmailStr
     reset_code: Optional[str]
+    expiry_date: Optional[datetime]
     creation_date: datetime
 
     class Config:
@@ -61,6 +64,9 @@ class UserLogin(BaseModel):
     username: str
     password: str
 
+
+class UserManage(BaseModel):
+    id: int
 
 # Token schemas
 class TokenData(BaseModel):
@@ -206,12 +212,20 @@ class BurstCreate(BaseModel):
 
 
 class BurstGet(BaseModel):
+    id: int
     course_id: int
     lesson_id: int
     user_id: int
     duration: int
     interrupted: bool
     interruption: Optional[str]
+    creation_date: datetime
 
     class Config:
         orm_mode = True
+
+
+# Invite schemas
+class InviteCreate(BaseModel):
+    phone: str
+    email: str

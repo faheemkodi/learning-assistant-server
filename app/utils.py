@@ -23,6 +23,24 @@ def verify(plain, hashed):
     return password_context.verify(plain, hashed)
 
 
+def calculate_expiry_date(date, trial):
+    year_in_seconds = 31536000
+    three_months_in_seconds = 7776000
+
+    if trial == True:
+        new_date = datetime.fromtimestamp(date.timestamp() + three_months_in_seconds)
+        return new_date
+        
+    new_date = datetime.fromtimestamp(date.timestamp() + year_in_seconds)
+    return new_date
+
+
+def check_expiry(date):
+    if datetime.now().timestamp() > date.timestamp():
+        return True
+    return False
+
+
 def check_password_strength(password: str):
     length = len(password)
     if length < 8:
