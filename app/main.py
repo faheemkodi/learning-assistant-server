@@ -13,9 +13,7 @@ origins = [
     "https://www.kengram.com",
     "https://kengram.com",
     "https://kengram.netlify.app",
-    "https://52.66.76.174:0",
-    "http://localhost:3000",
-    "http://192.168.0.113:3000"
+    "https://52.66.76.174:0"
 ]
 
 
