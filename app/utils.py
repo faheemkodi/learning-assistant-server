@@ -200,6 +200,8 @@ def calculate_required_velocity(deadline, progress):
     now = datetime.now().timestamp()
     deadline_date = deadline.timestamp()
     number_of_weeks = floor((deadline_date - now) / week_in_seconds)
+    if number_of_weeks < 1:
+        return 100
     required_velocity = round((100 - progress) / number_of_weeks)
     return required_velocity
 
