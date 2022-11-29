@@ -227,11 +227,11 @@ def pay(local=Header(default=None)):
     global payment
 
     currency = "INR"
-    amount = 36900
+    amount = 99900
 
     if local != "INR":
         currency = "USD"
-        amount = 600
+        amount = 1800
 
     client = razorpay.Client(
         auth=(payment_settings.razorpay_key_id, payment_settings.razorpay_key_secret))
@@ -253,7 +253,7 @@ def pay(local=Header(default=None)):
 
     if local != "INR":
         currency = "USD"
-        amount = 6900
+        amount = 6600
 
     client = razorpay.Client(
         auth=(payment_settings.razorpay_key_id, payment_settings.razorpay_key_secret))
